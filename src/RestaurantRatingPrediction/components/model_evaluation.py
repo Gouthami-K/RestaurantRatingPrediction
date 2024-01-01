@@ -30,7 +30,7 @@ class ModelEvaluation:
         
 
             #mlflow.set_registry_uri("")
-            
+            mlflow.set_registry_uri("https://dagshub.com/gouthamikrishnamurthy/RestaurantRatingPrediction.mlflow")
             tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
             
             print(tracking_url_type_store)
