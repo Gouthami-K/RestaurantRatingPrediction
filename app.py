@@ -11,7 +11,7 @@ def home_page():
     return render_template("index.html")
 
 
-@app.route("/predict",methods=["GET","POST"])
+@app.route("/predict",methods=["GET","POST"], endpoint='predict_datapoint') 
 def predict_datapoint():
     if request.method == "GET":
         return render_template("form.html")
@@ -19,14 +19,14 @@ def predict_datapoint():
     else:
         data=CustomData(
 
-            online_order = object(request.form.get('online_order')),
-            book_table = object(request.form.get('book_table')),
-            votes = int(request.form.get('votes')),
-            location = object(request.form.get('location')),
-            rest_type = object(request.form.get('rest_type')),
-            cuisines = object(request.form.get('cuisines')),
-            cost_for_2 = object(request.form.get('cost_for_2')),
-            type = object(request.form.get('type'))
+            online_order = str(request.form.get('online_order')),
+            book_table =str(request.form.get('book_table')),
+            votes = float(request.form.get('votes')),
+            location = str(request.form.get('location')),
+            rest_type = str(request.form.get('rest_type')),
+            cuisines = str(request.form.get('cuisines')),
+            cost_for_2 = float(request.form.get('cost_for_2')),
+            type = str(request.form.get('type'))
         )
 
         # this is my final data

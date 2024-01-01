@@ -1,9 +1,9 @@
 import os
 import sys
 import pandas as pd
-from src.CreditCardFaultDetection.exception import customexception
-from src.CreditCardFaultDetection.logger import logging
-from src.CreditCardFaultDetection.utils.utils import load_object
+from src.RestaurantRatingPrediction.exception import customexception
+from src.RestaurantRatingPrediction.logger import logging
+from src.RestaurantRatingPrediction.utils.utils import load_object
 
 
 class PredictPipeline:
@@ -30,17 +30,15 @@ class PredictPipeline:
     
 class CustomData:
     def __init__(self,
-                 online_order:object,
-                 book_table:object,
-                 votes:int,
-                 location:object,
-                 rest_type:object,
-                 cuisines:object,
-                 cost_for_2:object,
-                 type:object
+                 online_order:str,
+                 book_table:str,
+                 votes:float,
+                 location:str,
+                 rest_type:str,
+                 cuisines:str,
+                 cost_for_2:float,
+                 type:str
                  ):
-        
-        #online_order book_table location rest_type cuisines cost_for_2 type votes
         
         self.online_order=online_order
         self.book_table=book_table

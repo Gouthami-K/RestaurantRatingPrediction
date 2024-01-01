@@ -28,8 +28,8 @@ class DataIngestion:
         try:
             # to retrieve data from MongoDB
             mongo_uri = "mongodb+srv://zomato:zomato@zomato.0zgtc3p.mongodb.net/?retryWrites=true&w=majority"
-            database_name = "my_zomato_database"
-            collection_name = "restaurant_reviews"
+            database_name = "zomato_database"
+            collection_name = "rest_reviews"
 
             mongodb_data = MongoConnector.get_data_from_database(mongo_uri, database_name, collection_name)
     
