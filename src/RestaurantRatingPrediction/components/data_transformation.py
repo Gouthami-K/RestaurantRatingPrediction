@@ -31,7 +31,7 @@ class DataTransformation:
             logging.info('Data Transformation initiated')
 
             # Define which columns should be scaled
-            categorical_cols = ['online_order', 'book_table', 'location', 'rest_type', 'cuisines', 'approx_cost(for two people)', 'listed_in(type)']
+            categorical_cols = ['online_order', 'book_table', 'location', 'rest_type', 'cuisines', 'cost_for_2', 'type']
             numerical_cols = ['votes']
             
             logging.info('Pipeline Initiated')
@@ -82,6 +82,9 @@ class DataTransformation:
 
             target_column_name = 'rate'
             drop_columns = [target_column_name]
+
+            train_df = train_df.drop(columns=['_id'], axis=1)
+            test_df = test_df.drop(columns=['_id'], axis=1)
 
             logging.info("Handling rate columns")
             # Handle rate column
