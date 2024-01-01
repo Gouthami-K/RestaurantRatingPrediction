@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 from src.RestaurantRatingPrediction.logger import logging
 from src.RestaurantRatingPrediction.exception import customexception
+from src.RestaurantRatingPrediction.data_access.mongo_conn import MongoConnector
+
 
 import os
 import sys
@@ -24,8 +26,15 @@ class DataIngestion:
         logging.info("data ingestion started")
         
         try:
-            data=pd.read_csv(Path(os.path.join("notebooks/data","NEW_ZOMATO.csv")))
-            logging.info(" i have read dataset as a df")
+            # to retrieve data from MongoDB
+            mongo_uri = "mongodb+srv://zomato:zomato@zomato.0zgtc3p.mongodb.net/?retryWrites=true&w=majority"
+            database_name = "my_zomato_database"
+            collection_name = "restaurant_reviews"
+
+            mongodb_data = MongoConnector.get_data_from_database(mongo_uri, database_name, collection_name)
+    
+            data = pd.DataFrame(mongodb_data)
+            logging.info(" I have read dataset from MongoDB as a df")
             
             os.makedirs(os.path.dirname(os.path.join(self.ingestion_config.raw_data_path)),exist_ok=True)
             data.to_csv(self.ingestion_config.raw_data_path,index=False)
