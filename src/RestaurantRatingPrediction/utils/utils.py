@@ -71,7 +71,7 @@ def handle_categorical_columns(data, column_thresholds):
             data[column_name] = np.where(data[column_name].isin(categories_below_threshold), 'others', data[column_name])
             print(f"Updated column '{column_name}' with threshold {threshold}")
 
-        return data
+        #return data
         
     except Exception as e:
         logging.error(f"Error in handling categorical columns: {e}")
@@ -85,7 +85,7 @@ def handle_rate_column(df, column_name="rate"):
         # Replacing null values with the mean
         df[column_name].fillna(df[column_name].mean(), inplace=True)
 
-        return df
+        #return df
         
     except Exception as e:
         logging.error(f"Error in handling {column_name} column: {e}")

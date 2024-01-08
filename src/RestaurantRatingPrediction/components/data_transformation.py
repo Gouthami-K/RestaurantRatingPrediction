@@ -88,14 +88,14 @@ class DataTransformation:
 
             logging.info("Handling rate columns")
             # Handle rate column
-            train_df=handle_rate_column(train_df)
-            test_df= handle_rate_column(test_df)
+            handle_rate_column(train_df)
+            handle_rate_column(test_df)
 
             logging.info("Handling categorical columns")
             # Handle categorical columns
             column_thresholds = {"rest_type": 1000, "cuisines": 300, "location": 500}
-            train_df=handle_categorical_columns(train_df, column_thresholds)
-            test_df =handle_categorical_columns(test_df, column_thresholds)
+            handle_categorical_columns(train_df, column_thresholds)
+            handle_categorical_columns(test_df, column_thresholds)
             
             logging.info("Extracting features and target columns")
             # Extract features and target columns
