@@ -8,6 +8,9 @@ The Restaurant Rating Prediction Project is a machine learning-based application
 - **Predictive Modeling:** Utilize machine learning algorithms to build a predictive model capable of estimating restaurant ratings based on input features.
 - **User-Friendly Interface:** Interact with the model through an intuitive user interface that allows users to input restaurant features and receive a predicted rating.
 
+## Demo 
+https://drive.google.com/file/d/1h9lewh8SyR4IYSjRmmt4kvPqJ4GCZ5BD/view?usp=drive_link  
+
 ## MLOps and CI/CD
 Implementing MLOps ensures a seamless and automated machine learning lifecycle. Continuous Integration and Continuous Deployment (CI/CD) pipelines automate testing, model training, and deployment processes.
 
